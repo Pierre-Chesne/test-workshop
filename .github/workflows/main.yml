@@ -9,8 +9,8 @@ jobs:
 
     steps:
         - id: msg
-          name: " 👋  - Starting Deployment to AKS"
+          name: " 👋  - Démarrage du Workflow"
           run : |
-            echo " 👋  - Starting Deployment to AKS"
+            echo " 👋  - Démarrage du Workflow"
     
 
