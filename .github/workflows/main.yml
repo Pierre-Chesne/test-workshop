@@ -22,11 +22,15 @@ jobs:
       - name: Checks-out du repository
         uses: actions/checkout@v2
 
-      # Install the needed version of Terraform cli
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
         with:
           terraform_version: 1.1.7
+          
+      - name: Terraform Init
+        run: |
+          cd ./Terraform/Lab4_Pipeline_CI_CD_Terraform          
+          terraform init -backend-config="sas_token=${{ secrets.BACKENDSTORAGESASTOKEN }}"
     
     
     
