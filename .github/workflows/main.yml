@@ -51,7 +51,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: monplan.tfplan
-          path: ./Terraform
+          path: ./Terraform/monplan.tfplan
     
     
     
