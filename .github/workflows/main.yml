@@ -41,7 +41,11 @@ jobs:
         run: |
           cd ./Terraform
           terraform plan \
-             -var 'AzureSubscriptionID=${{ secrets.SUBSCRIPTIONID }}' -var 'AzureClientSecret=${{ secrets.CLIENTSECRET }}' -var 'AzureClientID=${{ secrets.CLIENTID }}' -var 'AzureTenandID=${{ secrets.TENANTID }}' -lock=false -out=monplan.tfplan
+             -var 'AzureSubscriptionID=${{ secrets.SUBSCRIPTIONID }}' \
+             -var 'AzureClientSecret=${{ secrets.CLIENTSECRET }}' \
+             -var 'AzureClientID=${{ secrets.CLIENTID }}' \
+             -var 'AzureTenandID=${{ secrets.TENANTID }}' \
+             -lock=false -out=monplan.tfplan
           ls -lisa
     
     
