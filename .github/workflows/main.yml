@@ -47,6 +47,11 @@ jobs:
              -var 'AzureTenandID=${{ secrets.TENANTID }}' \
              -lock=false -out=monplan.tfplan
           ls -lisa
+          
+      - uses: actions/upload-artifact@v3
+        with:
+          name: monplan.tfplan
+          path: ./Terraform
     
     
     
