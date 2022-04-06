@@ -47,6 +47,7 @@ jobs:
              -var 'AzureTenandID=${{ secrets.TENANTID }}' \
              -lock=false -out=monplan.tfplan
           ls -lisa
+          terraform show
           
       - uses: actions/upload-artifact@v3
         with:
