@@ -46,6 +46,11 @@ jobs:
              -var 'AzureClientID=${{ secrets.CLIENTID }}' \
              -var 'AzureTenandID=${{ secrets.TENANTID }}' \
              -lock=false -out=monplan.tfplan
+             
+      - name: apply
+        run: |
+          cd ./Terraform
+          terraform apply "monplan.tfplan"
 
           
       - name: Upload Artifact 
