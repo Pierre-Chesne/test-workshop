@@ -59,35 +59,33 @@ jobs:
     needs: Build-Terraform
 
     steps:
+
+      - name: Checks-out du repository
+        uses: actions/checkout@v2
+
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
         with:
           terraform_version: 1.1.7
 
       - name: Terraform Init
-        run: |   
+        run: |
+          cd ./Terraform    
           terraform init -backend-config="sas_token=${{ secrets.BACKENDSTORAGESASTOKEN }}"
       
       - name: Download Artifact
         uses: actions/download-artifact@v3
         with:
-          name: monplan.tfplan
+          name: ./Terraform/monplan.tfplan
 
       - name: Check Artifact
         run: |
           ls -lisa
 
-      - name: Terraform Plan
-        run: |
-          terraform plan \
-             -var 'AzureSubscriptionID=${{ secrets.SUBSCRIPTIONID }}' \
-             -var 'AzureClientSecret=${{ secrets.CLIENTSECRET }}' \
-             -var 'AzureClientID=${{ secrets.CLIENTID }}' \
-             -var 'AzureTenandID=${{ secrets.TENANTID }}' \
-             -lock=false
     
       - name: Terraform Apply
         run: |
+          cd ./Terraform
           terraform apply -auto-approve -lock=false "monplan.tfplan"          
 
     
