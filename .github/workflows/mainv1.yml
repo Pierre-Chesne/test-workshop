@@ -39,11 +39,11 @@ jobs:
 
       - name : Create Issue
         if: ${{ failure() }}
-      uses: actions-ecosystem/action-create-issue@v1
-      with:
-        github_token: ${{ secrets.github_token }}
-        title: Error Fucking Terraform
-        body: |
-          ## Fucking Terraform
+        uses: actions-ecosystem/action-create-issue@v1
+        with:
+          github_token: ${{ secrets.github_token }}
+          title: Error Fucking Terraform
+          body: |
+            ## Fucking Terraform
 
            
