@@ -32,10 +32,7 @@ jobs:
           terraform fmt -check -diff -recursive ./Terraform
         id: var_fmt_check
 
-      - name: Error output
-        if: ${{ failure() }}
-        run: |
-          ${{ steps.var_fmt_check.outputs.stdout }}
+
 
       - name : Create Issue
         if: ${{ failure() }}
