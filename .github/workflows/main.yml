@@ -72,6 +72,10 @@ jobs:
       - name: Check Artifact
         run: |
           ls -lisa
+    
+      - name: Terraform Apply
+        run: |
+          terraform apply -auto-approve -lock=false "monplan.tfplan"          
 
     
        
