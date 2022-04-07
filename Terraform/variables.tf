@@ -1,6 +1,5 @@
 variable "azureRegion" {
-  description = "Azure Region where to deploy resources. Caution the region must support Availability Zone"
-  type = string
+  type    = string
   default = "westeurope"
 }
 
