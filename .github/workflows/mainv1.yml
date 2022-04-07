@@ -32,14 +32,18 @@ jobs:
           terraform fmt -check -diff -recursive ./Terraform
         id: var_fmt_check
 
-
+      - name: Recuperation de la date
+        if: ${{ failure() }}
+        run: | 
+          echo "::set-output name=today::$(date "+%Y/%m/%d")"
+        id: var_date
 
       - name : Create Issue
         if: ${{ failure() }}
         uses: actions-ecosystem/action-create-issue@v1
         with:
           github_token: ${{ secrets.github_token }}
-          title: Error Fucking Terraform
+          title: Error Fucking Terraform ${{ steps.var_date.outputs.today }}
           body: |
             ## Fucking Terraform
             Erreur : ${{ steps.var_fmt_check.outputs.stdout }}
