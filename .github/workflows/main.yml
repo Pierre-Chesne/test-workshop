@@ -81,6 +81,8 @@ jobs:
 
       - name: Check Artifact
         run: |
+          cd ./Terraform
+          pwd
           ls -lisa
 
     
