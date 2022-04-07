@@ -45,5 +45,6 @@ jobs:
           title: Error Fucking Terraform
           body: |
             ## Fucking Terraform
+            Erreur : ${{ steps.var_fmt_check.outputs.stdout }}
 
            
