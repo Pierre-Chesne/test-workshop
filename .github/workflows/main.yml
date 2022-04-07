@@ -89,6 +89,8 @@ jobs:
       - name: Terraform Apply
         run: |
           cd ./Terraform
+          pwd
+          ls -lisa
           terraform apply -auto-approve -lock=false "monplan.tfplan"          
 
     
