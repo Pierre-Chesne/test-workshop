@@ -14,6 +14,7 @@ variable "resourceGroupName" {
 
 
 # Variables pour l'authentification du provider Terraform  
+
 variable "AzureSubscriptionID" {
   type = string
 }
@@ -29,6 +30,4 @@ variable "AzureClientID" {
 variable "AzureTenandID" {
   type = string
 }
-
-
 
