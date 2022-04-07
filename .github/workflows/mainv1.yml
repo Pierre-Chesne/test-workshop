@@ -5,7 +5,7 @@ on:
 
 jobs:
 
-Lint-Terraform:
+  Lint-Terraform:
     runs-on: ubuntu-latest
     steps:
 
