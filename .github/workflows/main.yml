@@ -91,7 +91,7 @@ jobs:
           cd ./Terraform
           pwd
           ls -lisa
-          terraform apply "monplan.tfplan"       
+          terraform apply "./monplan.tfplan"       
 
     
        
