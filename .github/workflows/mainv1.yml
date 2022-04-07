@@ -51,8 +51,8 @@ jobs:
           assignees: |
             Pierre-Chesne
 
-          label: |
-            Terraform        
+          labels: |
+            Error Lint Terraform        
       
 
            
