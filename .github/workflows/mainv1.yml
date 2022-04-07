@@ -1,0 +1,23 @@
+name: Test 1
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+Lint-Terraform:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checks-out du repository
+        uses: actions/checkout@v2
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 1.1.7
+
+      - name: Terraform Validate
+        run: |
+          cd ./Terraform
+          terraform validate    

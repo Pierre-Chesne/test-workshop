@@ -12,8 +12,7 @@ jobs:
           name: " 👋  - Démarrage du Workflow"
           run : |
             echo " 👋  - Démarrage du Workflow"
-            
-  
+
   Build-Terraform:
     runs-on: ubuntu-latest
     needs: Init-Workflows
