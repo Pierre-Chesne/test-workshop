@@ -35,4 +35,4 @@ jobs:
       - name: Test output
         if: ${{ failure() }}
         run: |
-          ${{ steps.var_fmt_check.outputs.stdout }}"       
+          ${{ steps.var_fmt_check.outputs.stdout }}    
