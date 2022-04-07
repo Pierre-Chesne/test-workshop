@@ -83,8 +83,32 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: ArtifactTerraform
-          path: ./Terraform/monplan.tfplan          
-          
-      
+          path: ./Terraform/monplan.tfplan
 
-           
+  Terraform-Apply:
+    runs-on: ubuntu-latest
+    needs: Terraform-Plan
+    steps:
+      - name: Checks-out du repository
+        uses: actions/checkout@v2
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 1.1.7
+
+      - name: Terraform Init
+        run: |
+          cd ./Terraform    
+          terraform init -backend-config="sas_token=${{ secrets.BACKENDSTORAGESASTOKEN }}"
+
+      - name: Download Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: ArtifactTerraform
+          path: ./Terraform
+
+      - name: Terraform Apply
+        run: |
+          cd ./Terraform
+          terraform apply "monplan.tfplan"           
