@@ -32,7 +32,18 @@ jobs:
           terraform fmt -check -diff -recursive ./Terraform
         id: var_fmt_check
 
-      - name: Test output
+      - name: Error output
         if: ${{ failure() }}
         run: |
-          ${{ steps.var_fmt_check.outputs.stdout }}    
+          ${{ steps.var_fmt_check.outputs.stdout }}
+
+      - name : Create Issue
+        if: ${{ failure() }}
+      uses: actions-ecosystem/action-create-issue@v1
+      with:
+        github_token: ${{ secrets.github_token }}
+        title: Error Fucking Terraform
+        body: |
+          ## Fucking Terraform
+
+           
