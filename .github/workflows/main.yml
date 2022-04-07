@@ -39,7 +39,6 @@ jobs:
           
       - name: Terraform Plan
         run: |
-          cd ./Terraform
           terraform plan \
              -var 'AzureSubscriptionID=${{ secrets.SUBSCRIPTIONID }}' \
              -var 'AzureClientSecret=${{ secrets.CLIENTSECRET }}' \
@@ -76,10 +75,20 @@ jobs:
       - name: Check Artifact
         run: |
           ls -lisa
+
+      - name: Terraform Plan
+        run: |
+          cd ./Terraform
+          terraform plan \
+             -var 'AzureSubscriptionID=${{ secrets.SUBSCRIPTIONID }}' \
+             -var 'AzureClientSecret=${{ secrets.CLIENTSECRET }}' \
+             -var 'AzureClientID=${{ secrets.CLIENTID }}' \
+             -var 'AzureTenandID=${{ secrets.TENANTID }}' \
+             -lock=false
     
       - name: Terraform Apply
         run: |
-          terraform apply -auto-approve "monplan.tfplan"          
+          terraform apply -auto-approve -lock=false "monplan.tfplan"          
 
     
        
