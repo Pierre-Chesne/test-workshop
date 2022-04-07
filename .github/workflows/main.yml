@@ -47,16 +47,13 @@ jobs:
              -var 'AzureTenandID=${{ secrets.TENANTID }}' \
              -lock=false -out=monplan.tfplan
              
-      - name: apply
-        run: |
-          cd ./Terraform
-          terraform apply "monplan.tfplan"
+
 
           
       - name: Upload Artifact 
         uses: actions/upload-artifact@v3
         with:
-          name: monplan.tfplan
+          name: ArtifactTerraform
           path: ./Terraform/monplan.tfplan
 
   Deploy-Terraform:
@@ -81,14 +78,15 @@ jobs:
       - name: Download Artifact
         uses: actions/download-artifact@v3
         with:
-          name: monplan.tfplan
-          path: ./Terraform/monplan.tfplan
+          name: ArtifactTerraform
+          path: ./Terraform
 
       - name: Check Artifact
         run: |
           cd ./Terraform
           pwd
           ls -lisa
+          terraform show "monplan.tfplan"
 
     
       - name: Terraform Apply
@@ -96,7 +94,7 @@ jobs:
           cd ./Terraform
           pwd
           ls -lisa
-          terraform apply "./monplan.tfplan"       
+          terraform apply "monplan.tfplan"       
 
     
        
