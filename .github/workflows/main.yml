@@ -79,7 +79,7 @@ jobs:
     
       - name: Terraform Apply
         run: |
-          terraform apply -auto-approve -lock=false "monplan.tfplan"          
+          terraform apply -auto-approve "monplan.tfplan"          
 
     
        
