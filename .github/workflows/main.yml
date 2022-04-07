@@ -91,7 +91,7 @@ jobs:
           cd ./Terraform
           pwd
           ls -lisa
-          terraform apply "monplan.tfplan" -auto-approve -lock=false           
+          terraform apply "monplan.tfplan"       
 
     
        
