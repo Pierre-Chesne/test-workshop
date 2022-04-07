@@ -1,4 +1,4 @@
-name: Test 1
+name: Deploiement avancé Terraform
 
 on:
   workflow_dispatch:

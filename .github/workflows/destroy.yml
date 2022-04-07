@@ -1,0 +1,29 @@
+name: Destroy Terraform
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  Terraform-Destroy:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checks-out du repository
+        uses: actions/checkout@v2
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 1.1.7
+
+      - name: Terraform Init
+        run: |
+          cd ./Terraform         
+          terraform init -backend-config="sas_token=${{ secrets.BACKENDSTORAGESASTOKEN }}"
+
+      - name: Terraform Destroy
+        run: |
+           cd ./Terraform
+           terraform destroy -auto-approve        
+
