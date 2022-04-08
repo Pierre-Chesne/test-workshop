@@ -24,9 +24,15 @@ jobs:
 
       - name: Run terraform fmt check
         run: |
-          terraform fmt -check -diff -recursive ./Terraform
+          terraform fmt -check -diff ./Terraform
         id: var_fmt_check
 
+      - name: Error fmt check
+        if: ${{ failure() }}
+        run: |
+          terraform fmt -check -diff ./Terraform > error
+          cat error
+          
       - name: Recuperation de la date
         if: ${{ failure() }}
         run: | 
