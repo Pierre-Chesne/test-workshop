@@ -22,11 +22,6 @@ jobs:
           cd ./Terraform         
           terraform init -backend-config="sas_token=${{ secrets.BACKENDSTORAGESASTOKEN }}"
 
-      - name: Terraform Validate
-        run: |
-          cd ./Terraform
-          terraform validate
-
       - name: Run terraform fmt check
         run: |
           terraform fmt -check -diff -recursive ./Terraform
@@ -35,7 +30,7 @@ jobs:
       - name: Recuperation de la date
         if: ${{ failure() }}
         run: | 
-          echo "::set-output name=today::$(date "+%Y/%m/%d")"
+          echo "::set-output name=today::$(date "+%Y/%m/%d-%H-%M")"
         id: var_date
 
       - name : Create Issue
@@ -51,6 +46,11 @@ jobs:
             Pierre-Chesne
           labels: |
             Error Lint Terraform
+
+      - name: Terraform Validate
+        run: |
+          cd ./Terraform
+          terraform validate
 
   Terraform-Plan:
     runs-on: ubuntu-latest
