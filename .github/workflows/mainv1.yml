@@ -30,7 +30,7 @@ jobs:
       - name: Error fmt check
         if: ${{ failure() }}
         run: |
-          cd ./Terraform && terraform fmt -check -diff > error
+          terraform fmt -check -diff ./Terraform > error
           ls -lisa
           
       - name: Recuperation de la date
