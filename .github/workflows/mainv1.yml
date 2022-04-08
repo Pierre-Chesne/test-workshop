@@ -30,7 +30,7 @@ jobs:
       - name: Recuperation de la date
         if: ${{ failure() }}
         run: | 
-          echo "::set-output name=today::$(date "+%Y/%m/%d-%H-%M-%S")"
+          echo "::set-output name=today::$(date "+%Y/%m/%d-%Hh-%Mm-%Ss")"
         id: var_date
 
       - name : Create Issue
