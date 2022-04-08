@@ -1,6 +1,7 @@
 variable "azureRegion" {
-  type    = string
-  default = "westeurope"
+  type        = string
+  default     = "westeurope"
+  description = "tamere"
 }
 
 variable "resourceGroupName" {
