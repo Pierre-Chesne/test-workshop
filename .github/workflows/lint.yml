@@ -13,8 +13,7 @@ jobs:
         uses: actions/checkout@v2
 
 
-      - name: Error fmt check
-        if: ${{ failure() }}
+      - name: Error fmt check        
         run: |
           cd ./Terraform && terraform fmt -check -diff > error
           ls -lisa
