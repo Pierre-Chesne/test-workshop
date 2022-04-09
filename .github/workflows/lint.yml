@@ -12,15 +12,13 @@ jobs:
       - name: Checks-out du repository
         uses: actions/checkout@v2
 
-      - name: Error fmt check        
+      - name: fmt check        
         run: |
           cd ./Terraform
           terraform fmt -check -diff > error
 
-      - name: ls
+      - name: Error fmt check
         if: ${{ failure() }}
         run: |
           cd ./Terraform
           cat error
-          ls -lisa
-          
