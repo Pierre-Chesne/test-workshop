@@ -1,0 +1,19 @@
+name: Lint Terraform
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  Terraform-fmt:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checks-out du repository
+        uses: actions/checkout@v2
+
+      - name: Run terraform fmt check
+        run: |
+          terraform fmt -check -diff ./Terraform
+        id: var_fmt_check
+        
