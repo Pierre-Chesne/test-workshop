@@ -16,3 +16,9 @@ jobs:
         run: |
           cd ./Terraform && terraform fmt -check -diff
         id: var_fmt_check
+
+      - name: Error fmt check
+        if: ${{ failure() }}
+        run: |
+          cd ./Terraform && terraform fmt -check -diff 
+          
