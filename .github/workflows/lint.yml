@@ -17,5 +17,5 @@ jobs:
         run: |
           cd ./Terraform
           terraform fmt -check -diff
-          
+          ls -R
           
