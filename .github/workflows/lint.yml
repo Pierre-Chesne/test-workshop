@@ -12,10 +12,6 @@ jobs:
       - name: Checks-out du repository
         uses: actions/checkout@v2
 
-      - name: Run terraform fmt check
-        run: |
-          cd ./Terraform && terraform fmt -check -diff
-        id: var_fmt_check
 
       - name: Error fmt check
         if: ${{ failure() }}
