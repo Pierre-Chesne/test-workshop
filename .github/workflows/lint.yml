@@ -20,5 +20,6 @@ jobs:
       - name: Error fmt check
         if: ${{ failure() }}
         run: |
-          cd ./Terraform && terraform fmt -check -diff 
+          cd ./Terraform && terraform fmt -check -diff > error
+          ls -lisa
           
