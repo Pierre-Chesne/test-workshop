@@ -1,0 +1,12 @@
+variables.tf
+--- old/variables.tf
++++ new/variables.tf
+@@ -1,7 +1,7 @@
+ variable "azureRegion" {
+   type        = string
+   default     = "westeurope"
+-  description= "tamere"
++  description = "tamere"
+ }
+ 
+ variable "resourceGroupName" {
