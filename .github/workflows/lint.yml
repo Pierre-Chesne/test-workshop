@@ -22,3 +22,16 @@ jobs:
         run: |
           cd ./Terraform
           cat error
+
+      - name : Create Issue
+        if: ${{ failure() }}
+        uses: actions-ecosystem/action-create-issue@v1
+        with:
+          github_token: ${{ secrets.github_token }}
+          title: Error Terraform
+          body: |
+            test
+          assignees: |
+            Pierre-Chesne
+          labels: |
+            Error Lint Terraform
