@@ -14,5 +14,5 @@ jobs:
 
       - name: Run terraform fmt check
         run: |
-          cd ./Terraformterraform && fmt -check -diff
+          cd ./Terraformterraform && terraform fmt -check -diff
         id: var_fmt_check
