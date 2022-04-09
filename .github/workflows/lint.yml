@@ -16,6 +16,5 @@ jobs:
       - name: Error fmt check        
         run: |
           cd ./Terraform
-          terraform fmt -check -diff
-          ls -R
+          terraform fmt -check -diff > error
           
