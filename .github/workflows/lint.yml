@@ -22,10 +22,7 @@ jobs:
           echo "::set-output name=today::$(date "+%Y/%m/%d-%Hh-%Mm-%Ss")"
         id: var_timestamp
 
-      - name: Create fmt check issue
-        if: ${{ failure() }}
-
-      - name : Create Issue
+      - name : Create fmt check issue
         if: ${{ failure() }}
         uses: actions-ecosystem/action-create-issue@v1
         with:
