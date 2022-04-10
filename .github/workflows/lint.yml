@@ -12,26 +12,6 @@ jobs:
       - name: Checks-out du repository
         uses: actions/checkout@v2
 
-      - name: fmt check        
-        run: |
-          cd ./Terraform
-          terraform fmt -check -diff > error
-
-      - name: Error fmt check
-        if: ${{ failure() }}
-        run: |
-          cd ./Terraform
-          cat error
-
-      - name : Create Issue
-        if: ${{ failure() }}
-        uses: actions-ecosystem/action-create-issue@v1
-        with:
-          github_token: ${{ secrets.github_token }}
-          title: Error Terraform
-          body: |
-            test
-          assignees: |
-            Pierre-Chesne
-          labels: |
-            Error Lint Terraform
+      - name: Terraform fmt check        
+        run: |          
+          terraform fmt -check -diff ./Terraform
