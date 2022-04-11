@@ -58,7 +58,7 @@ jobs:
 
       - name: Terraform Plan
         run: |
-          cd ./Terraform/Lab11_Pipeline_CI_CD_Terraform_advanced
+          cd ./Terraform
           terraform plan \
              -var 'AzureSubscriptionID=${{ secrets.SUBSCRIPTIONID }}' \
              -var 'AzureClientSecret=${{ secrets.CLIENTSECRET }}' \
