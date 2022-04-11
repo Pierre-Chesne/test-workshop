@@ -54,9 +54,5 @@ jobs:
       - name: Terraform Init
         run: |
           cd ./Terraform         
-          terraform init -backend-config="sas_token=${{ secrets.BACKENDSTORAGESASTOKEN }}
-
-      - name: Terraform Plan
-        run: |
-          ls -lisa
+          terraform init -backend-config="sas_token=${{ secrets.BACKENDSTORAGESASTOKEN }}         
         
