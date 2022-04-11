@@ -51,14 +51,7 @@ jobs:
         with:
           terraform_version: 1.1.7
 
-      - name: Terraform Plan
+      - name: Terraform Init
         run: |
-          cd ./Terraform
-          pwd
-          ls -lisa
-          terraform plan \
-             -var 'AzureSubscriptionID=${{ secrets.SUBSCRIPTIONID }}' \
-             -var 'AzureClientSecret=${{ secrets.CLIENTSECRET }}' \
-             -var 'AzureClientID=${{ secrets.CLIENTID }}' \
-             -var 'AzureTenandID=${{ secrets.TENANTID }}' \
-             -lock=false -out=tf.plan
+          cd ./Terraform         
+          terraform init -backend-config="sas_token=${{ secrets.BACKENDSTORAGESASTOKEN }}"
