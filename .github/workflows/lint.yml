@@ -13,7 +13,7 @@ jobs:
 
       - name: Terraform fmt check
         run: |          
-          terraform fmt -check -diff ./Terraform
+          terraform fmt -check -diff ./Terraform/Rg
         id: var_fmt_check
 
   Terraform-validate:
@@ -34,7 +34,7 @@ jobs:
 
       - name: Terraform Validate
         run: |
-          cd ./Terraform
+          cd ./Terraform/Rg
           terraform validate
 
   Terraform-plan:
@@ -53,12 +53,12 @@ jobs:
 
       - name: Terraform Init
         run: |
-          cd ./Terraform         
+          cd ./Terraform/Rg         
           terraform init -backend-config="sas_token=${{ secrets.BACKENDSTORAGESASTOKEN }}"
 
       - name: Terraform Plan
         run: |
-          cd ./Terraform
+          cd ./Terraform/Rg
           terraform plan \
              -var 'AzureSubscriptionID=${{ secrets.SUBSCRIPTIONID }}' \
              -var 'AzureClientSecret=${{ secrets.CLIENTSECRET }}' \
@@ -71,16 +71,3 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: 3.8
-
-      - name: Test with Checkov
-        uses: bridgecrewio/checkov-action@master
-        with:
-          directory: ./Terraform
-          framework: terraform
-          config_file: ./Terraform/rapport
-
-
-      - name: Rapport
-        run: |
-          cd ./Terraform
-          ls -lisa

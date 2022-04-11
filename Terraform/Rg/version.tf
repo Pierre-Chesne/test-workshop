@@ -1,10 +1,10 @@
 terraform {
   required_version = ">= 1.1.7"
   backend "azurerm" {
-    resource_group_name  = "RG-AKSCluster"
+    resource_group_name  = "RG-Terraform-Test"
     storage_account_name = "storagebeterraform"
     container_name       = "tfstate"
-    key                  = "pipeline-gh.terraform.tfstate"
+    key                  = "rg.terraform.tfstate"
   }
 
   required_providers {
