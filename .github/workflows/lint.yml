@@ -48,11 +48,6 @@ jobs:
         with:
           terraform_version: 1.1.7
 
-      - name: Terraform Init
-        run: |
-          cd ./Terraform/Rg         
-          terraform init -backend-config="sas_token=${{ secrets.BACKENDSTORAGESASTOKEN }}"
-
       - name: Set up Python 3.8
         uses: actions/setup-python@v1
         with:
