@@ -19,7 +19,7 @@ jobs:
 
       - name: Terraform Init
         run: |
-          cd ./Terraform         
+          cd ./Terraform/Vm         
           terraform init -backend-config="sas_token=${{ secrets.BACKENDSTORAGESASTOKEN }}"
 
       - name: Terraform Plan
@@ -34,6 +34,6 @@ jobs:
       
       - name: Terraform Destroy
         run: |
-           cd ./Terraform
+           cd ./Terraform/Vm
            terraform destroy -force        
 
