@@ -67,12 +67,7 @@ jobs:
              -lock=false -out=tf.plan
           ls -lisa
 
-      - name: Installation Checkov
-        run: |
-          sudo apt update
-          sudo apt install software-properties-common
-          sudo add-apt-repository ppa:deadsnakes/ppa
-          sudo apt install python3.7
-          sudo apt install python3-pip
-          sudo python3.7 -m pip install -U checkov
-        
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
