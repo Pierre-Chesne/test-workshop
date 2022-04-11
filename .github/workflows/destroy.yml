@@ -30,10 +30,11 @@ jobs:
              -var 'AzureClientSecret=${{ secrets.CLIENTSECRET }}' \
              -var 'AzureClientID=${{ secrets.CLIENTID }}' \
              -var 'AzureTenandID=${{ secrets.TENANTID }}' \
-             -lock=false -out=tf.plan
+             -lock=false
       
       - name: Terraform Destroy
         run: |
            cd ./Terraform/Vm
-           terraform apply -destroy -auto-approve      
+           terraform destroy -auto-approve
+
 
