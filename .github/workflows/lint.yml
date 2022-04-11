@@ -56,3 +56,9 @@ jobs:
           cd ./Terraform
           pwd
           ls -lisa
+          terraform plan \
+             -var 'AzureSubscriptionID=${{ secrets.SUBSCRIPTIONID }}' \
+             -var 'AzureClientSecret=${{ secrets.CLIENTSECRET }}' \
+             -var 'AzureClientID=${{ secrets.CLIENTID }}' \
+             -var 'AzureTenandID=${{ secrets.TENANTID }}' \
+             -lock=false -out=tf.plan
