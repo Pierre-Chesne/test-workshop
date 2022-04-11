@@ -50,9 +50,3 @@ jobs:
         uses: hashicorp/setup-terraform@v1
         with:
           terraform_version: 1.1.7
-
-      - name: Terraform Init
-        run: |
-          cd ./Terraform         
-          terraform init -backend-config="sas_token=${{ secrets.BACKENDSTORAGESASTOKEN }}         
-        
