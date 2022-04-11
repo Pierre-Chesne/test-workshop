@@ -22,19 +22,10 @@ jobs:
           cd ./Terraform/Vm         
           terraform init -backend-config="sas_token=${{ secrets.BACKENDSTORAGESASTOKEN }}"
 
-      - name: Terraform Plan
-        run: |
-          cd ./Terraform/Vm
-          terraform plan \
-             -var 'AzureSubscriptionID=${{ secrets.SUBSCRIPTIONID }}' \
-             -var 'AzureClientSecret=${{ secrets.CLIENTSECRET }}' \
-             -var 'AzureClientID=${{ secrets.CLIENTID }}' \
-             -var 'AzureTenandID=${{ secrets.TENANTID }}' \
-             -lock=false
-
       - name: Terraform Destroy
         run: |
            cd ./Terraform/Vm
-           terraform destroy -auto-approve -lock=false
+           terraform destroy -auto-approve
+           
 
 
