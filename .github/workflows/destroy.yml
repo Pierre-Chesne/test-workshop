@@ -29,8 +29,7 @@ jobs:
              -var 'AzureSubscriptionID=${{ secrets.SUBSCRIPTIONID }}' \
              -var 'AzureClientSecret=${{ secrets.CLIENTSECRET }}' \
              -var 'AzureClientID=${{ secrets.CLIENTID }}' \
-             -var 'AzureTenandID=${{ secrets.TENANTID }}' \
-             -lock=false
+             -var 'AzureTenandID=${{ secrets.TENANTID }}'
       
       - name: Terraform Destroy
         run: |
