@@ -77,3 +77,8 @@ jobs:
         with:
           directory: ./Terraform
           framework: terraform
+
+      - name: Rapport
+        run: |
+          cd ./Terraform
+          ls -lisa
