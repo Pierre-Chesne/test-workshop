@@ -77,6 +77,8 @@ jobs:
         with:
           directory: ./Terraform
           framework: terraform
+          config_file: ./Terraform
+
 
       - name: Rapport
         run: |
