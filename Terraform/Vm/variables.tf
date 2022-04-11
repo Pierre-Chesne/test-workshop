@@ -43,3 +43,19 @@ variable "vmUser" {
   type    = string
   default = "adminuser"
 }
+
+variable "AzureSubscriptionID" {
+  type = string
+}
+
+variable "AzureClientSecret" {
+  type = string
+}
+
+variable "AzureClientID" {
+  type = string
+}
+
+variable "AzureTenandID" {
+  type = string
+}
