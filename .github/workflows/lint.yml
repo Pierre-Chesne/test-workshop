@@ -64,4 +64,5 @@ jobs:
              -var 'AzureClientSecret=${{ secrets.CLIENTSECRET }}' \
              -var 'AzureClientID=${{ secrets.CLIENTID }}' \
              -var 'AzureTenandID=${{ secrets.TENANTID }}' \
-             -lock=false -out=tf.plan          
+             -lock=false -out=tf.plan
+          ls -lisa          
