@@ -62,13 +62,8 @@ jobs:
         id: checkov
         uses: bridgecrewio/checkov-action@master
         with:
-          directory: Terraform/Rg
+          directory: Terraform/Vm
           framework: terraform
-      
-      - name: Execution de Checkov
-        run: |
-          cd ./Terraform/Vm
-          checkov -d . --framework terraform
           
   Terraform-plan:
     runs-on: ubuntu-latest
