@@ -59,6 +59,7 @@ jobs:
         with:
           directory: Terraform/Vm
           framework: terraform
+          skip_check: CKV_AZURE_50
           
   Terraform-plan:
     runs-on: ubuntu-latest
