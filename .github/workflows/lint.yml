@@ -71,3 +71,9 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: 3.8
+
+      - name: Test with Checkov
+        uses: bridgecrewio/checkov-action@master
+        with:
+          directory: ./Terraform
+          framework: terraform
