@@ -15,26 +15,22 @@ jobs:
         run: |          
           terraform fmt -check -diff ./Terraform
         id: var_fmt_check
-      
-      - name: Get Timestamp
-        if: ${{ failure() }}
-        run: |
-          echo "::set-output name=today::$(date "+%Y/%m/%d-%Hh-%Mm-%Ss")"
-        id: var_timestamp
 
-      - name : Create fmt check issue
-        if: ${{ failure() }}
-        uses: actions-ecosystem/action-create-issue@v1
-        with:
-          github_token: ${{ secrets.github_token }}
-          title: Error fmt check Terraform ${{ steps.var_timestamp.outputs.today }}
-          body: |
-            ## Error Terraform
-            Erreur : ${{ steps.var_fmt_check.outputs.stdout }}
-          assignees: |
-            Pierre-Chesne
-          labels: |
-            Error lint Terraform
+  Terraform-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checks-out du repository
+        uses: actions/checkout@v2
+
+      - name: Terraform Validate
+        run: |
+          cd ./Terraform
+          terraform validate      
+      
+
+
+      
+
 
 
 
