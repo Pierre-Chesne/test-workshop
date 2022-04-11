@@ -53,15 +53,18 @@ jobs:
           cd ./Terraform/Rg         
           terraform init -backend-config="sas_token=${{ secrets.BACKENDSTORAGESASTOKEN }}"
 
-      - name: Installation Checkov
-        run: |
-          sudo apt update
-          sudo apt install software-properties-common
-          sudo add-apt-repository ppa:deadsnakes/ppa
-          sudo apt install python3.7
-          sudo apt install python3-pip
-          sudo python3.7 -m pip install -U checkov
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
 
+      - name: Test with Checkov
+        id: checkov
+        uses: bridgecrewio/checkov-action@master
+        with:
+          directory: Terraform/Rg
+          framework: terraform
+      
       - name: Execution de Checkov
         run: |
           cd ./Terraform/Vm
