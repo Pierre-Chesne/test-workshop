@@ -91,3 +91,9 @@ jobs:
              -var 'AzureTenandID=${{ secrets.TENANTID }}' \
              -lock=false -out=tf.plan
           ls -lisa
+      
+      - name: Upload Artifact 
+        uses: actions/upload-artifact@v3
+        with:
+          name: ArtifactTerraform
+          path: ./Terraform/Vm/tf.plan
