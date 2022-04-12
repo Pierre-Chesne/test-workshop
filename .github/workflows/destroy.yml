@@ -25,7 +25,7 @@ jobs:
       - name: Terraform Destroy
         run: |
            cd ./Terraform/Vm
-           terraform apply "tf.plan" -lock=false -destroy -auto-approve
+           terraform apply "tf.plan" -destroy -auto-approve
            
 
 
