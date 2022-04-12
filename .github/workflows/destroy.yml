@@ -25,6 +25,7 @@ jobs:
       - name: Terraform Destroy
         run: |
            cd ./Terraform/Vm
+           run: echo '${{ toJSON(steps) }}'
            terraform apply -lock=false -destroy -auto-approve
            
 
