@@ -25,7 +25,7 @@ jobs:
       - name: Terraform Destroy
         run: |
            cd ./Terraform/Vm
-           terraform destroy -auto-approve
+           terraform apply -destroy -auto-approve
            
 
 
