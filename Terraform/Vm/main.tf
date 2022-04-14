@@ -50,8 +50,8 @@ resource "azurerm_linux_virtual_machine" "terra_vm" {
   admin_ssh_key {
     username = var.vmUser
     #public_key = file("~/.ssh/id_rsa.pub")
-    #public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCm9OdKa3kFqUd7QlgytUnBTwKMmmwpK7FqsZu8qXX/HSSP1PlhyTLOo7oojv6uOxwmOZqnaNYt+QlxCCREBrtWUvoZUAcvXSQdDzcyFPSHQM3A2Rtnjyr+FSBZaeIiJapl5ujrTWyIZPnepLlJEjYbmTC0Ul8ti10kolxU9pGSKTdkHAKIzR9HeqWishFlF8S8039Mt+SUC/2p0OC3+J2mV2HL9ccPXyUE6ShOPAT04MGuUyNXEO6NgZGG7jFYsva5uz8wR7roih1hJu9icP0hiw8TT47LN7686zTi58zQfATd7pPpnNo46BnJ4e28d6aWyF96uav249H+w4I0Xhw5gFBufEgX1K8y3SjEY0ilzwd1gQdDABcbePWVDHj+njUhX2VcAIHBLJ4LRi5t6bupDCQzn6mAt2l7ZWgOtlBKBWjcAj886RCqKCz+is1rut0lJBh3dq0acWEzG42/k+IlwVCq88Ju5nvAbTdeX5bW8gpFIuhVxZwllfuxFCxxDuc="
-    public_key = var.sshKey
+    public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCm9OdKa3kFqUd7QlgytUnBTwKMmmwpK7FqsZu8qXX/HSSP1PlhyTLOo7oojv6uOxwmOZqnaNYt+QlxCCREBrtWUvoZUAcvXSQdDzcyFPSHQM3A2Rtnjyr+FSBZaeIiJapl5ujrTWyIZPnepLlJEjYbmTC0Ul8ti10kolxU9pGSKTdkHAKIzR9HeqWishFlF8S8039Mt+SUC/2p0OC3+J2mV2HL9ccPXyUE6ShOPAT04MGuUyNXEO6NgZGG7jFYsva5uz8wR7roih1hJu9icP0hiw8TT47LN7686zTi58zQfATd7pPpnNo46BnJ4e28d6aWyF96uav249H+w4I0Xhw5gFBufEgX1K8y3SjEY0ilzwd1gQdDABcbePWVDHj+njUhX2VcAIHBLJ4LRi5t6bupDCQzn6mAt2l7ZWgOtlBKBWjcAj886RCqKCz+is1rut0lJBh3dq0acWEzG42/k+IlwVCq88Ju5nvAbTdeX5bW8gpFIuhVxZwllfuxFCxxDuc="
+    #public_key = var.sshKey
   }
 
   os_disk {
