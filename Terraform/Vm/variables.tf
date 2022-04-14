@@ -26,9 +26,9 @@ variable "nicName" {
 }
 
 variable "publicIp" {
-  type = string
+  type    = string
   default = "publicIp"
-  
+
 }
 
 variable "vmName" {
