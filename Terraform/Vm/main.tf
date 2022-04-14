@@ -18,7 +18,7 @@ resource "azurerm_subnet" "terra_subnet" {
 }
 
 resource "azurerm_public_ip" "terra_public_ip" {
-  name                = var.puplicIp
+  name                = var.publicIp
   location            = azurerm_resource_group.terra_rg.location
   resource_group_name = azurerm_resource_group.terra_rg.name
   allocation_method   = "Dynamic"

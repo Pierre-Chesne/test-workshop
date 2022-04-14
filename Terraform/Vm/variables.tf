@@ -5,7 +5,6 @@ variable "resourceGroupName" {
 }
 
 variable "azureRegion" {
-
   type    = string
   default = "eastus2"
 }
@@ -24,6 +23,12 @@ variable "nicName" {
   type    = string
   default = "Nic-1"
 
+}
+
+variable "publicIp" {
+  type = string
+  default = "publicIp"
+  
 }
 
 variable "vmName" {
