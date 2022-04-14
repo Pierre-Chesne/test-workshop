@@ -28,7 +28,7 @@ variable "nicName" {
 
 variable "vmName" {
   type    = string
-  default = "VM-Linux"
+  default = "VM-Runner-0"
 }
 
 # az vm list-skus -l westus
