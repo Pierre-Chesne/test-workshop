@@ -17,6 +17,13 @@ resource "azurerm_subnet" "terra_subnet" {
   address_prefixes     = ["10.0.2.0/24"]
 }
 
+resource "azurerm_public_ip" "terra_public_ip" {
+  name                = var.puplicIp
+  location            = azurerm_resource_group.terra_rg.location
+  resource_group_name = azurerm_resource_group.terra_rg.name
+  allocation_method   = "Dynamic"
+}
+
 resource "azurerm_network_interface" "terra_nic" {
   name                = var.nicName
   location            = azurerm_resource_group.terra_rg.location
@@ -26,6 +33,7 @@ resource "azurerm_network_interface" "terra_nic" {
     name                          = "internal"
     subnet_id                     = azurerm_subnet.terra_subnet.id
     private_ip_address_allocation = "Dynamic"
+    public_ip_address_id          = azurerm_public_ip.terra_public_ip
   }
 }
 
