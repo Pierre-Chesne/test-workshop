@@ -44,7 +44,11 @@ variable "vmSize" {
 
 variable "vmUser" {
   type    = string
-  default = "adminuser"
+  default = "pierrc"
+}
+
+variable "sshKey" {
+  type = string
 }
 
 variable "AzureSubscriptionID" {

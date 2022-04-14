@@ -1,4 +1,4 @@
-name: Lint Terraform
+name: Deploy Runner
 
 on:
   workflow_dispatch:
@@ -89,8 +89,8 @@ jobs:
              -var 'AzureClientSecret=${{ secrets.CLIENTSECRET }}' \
              -var 'AzureClientID=${{ secrets.CLIENTID }}' \
              -var 'AzureTenandID=${{ secrets.TENANTID }}' \
+             -var 'sshKey'=${{ secrets.SSHKEY }}' \
              -lock=false -out=tf.plan
-          ls -lisa
       
       - name: Upload Artifact 
         uses: actions/upload-artifact@v3
