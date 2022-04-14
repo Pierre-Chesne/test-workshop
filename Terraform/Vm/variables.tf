@@ -47,9 +47,9 @@ variable "vmUser" {
   default = "pierrc"
 }
 
-#variable "sshKey" {
-#  type = string
-#}
+variable "sshKey" {
+  type = string
+}
 
 variable "AzureSubscriptionID" {
   type = string
