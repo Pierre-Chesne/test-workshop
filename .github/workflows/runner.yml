@@ -89,7 +89,6 @@ jobs:
              -var 'AzureClientSecret=${{ secrets.CLIENTSECRET }}' \
              -var 'AzureClientID=${{ secrets.CLIENTID }}' \
              -var 'AzureTenandID=${{ secrets.TENANTID }}' \
-             -var 'sshKey'=${{ secrets.SSHKEY }}' \
              -lock=false -out=tf.plan
       
       - name: Upload Artifact 
