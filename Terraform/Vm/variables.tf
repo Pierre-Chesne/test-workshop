@@ -7,7 +7,7 @@ variable "resourceGroupName" {
 variable "azureRegion" {
 
   type    = string
-  default = "eastus"
+  default = "eastus2"
 }
 
 variable "vnetName" {
