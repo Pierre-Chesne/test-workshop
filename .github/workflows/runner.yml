@@ -128,4 +128,4 @@ jobs:
       - name: Terraform Apply
         run: |
           cd ./Terraform/Vm
-          terraform apply "tf.plan"
+          terraform apply -lock=false "tf.plan"
