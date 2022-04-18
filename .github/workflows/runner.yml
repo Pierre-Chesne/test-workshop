@@ -27,6 +27,7 @@ jobs:
         if: ${{ failure() }}
         run: |
           ls -lisa
+          cat error-fmt
       
       - name: Creation d'un Timestamp
         if: ${{ failure() }}
