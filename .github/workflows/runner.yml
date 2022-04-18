@@ -24,19 +24,19 @@ jobs:
 
       - name: Create Issue fmt check
         if: ${{ failure() }}
-      uses: actions-ecosystem/action-create-issue@v1
-      with:
-        github_token: ${{ secrets.github_token }}
-        title: Error fmt check Terraform ${{ steps.var_date.outputs.today }}
-        body: |
-          ## Error Terraform 
+        uses: actions-ecosystem/action-create-issue@v1
+        with:
+          github_token: ${{ secrets.github_token }}
+          title: Error fmt check Terraform ${{ steps.var_date.outputs.today }}
+          body: |
+            ## Error Terraform 
 
 
-        assignees: |
-          Pierre-Chesne        
+          assignees: |
+            Pierre-Chesne        
 
-        labels: |
-          Error Lint Terraform       
+          labels: |
+            Error Lint Terraform       
 
   Terraform-validate:
     runs-on: ubuntu-latest
