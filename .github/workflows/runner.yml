@@ -22,6 +22,9 @@ jobs:
         if: ${{ failure() }}
         run: |
           terraform fmt -check -diff ./Terraform/Vm > error-fmt
+      
+      - name: cat error-fmt
+        run: |
           ls -lisa
       
       - name: Creation d'un Timestamp
