@@ -19,7 +19,7 @@ jobs:
       - name: Get error fmt check
         if: ${{ failure() }}
         run: | 
-          echo ${{ step.var_fmt_check.outputs }}
+          echo ${{ steps.var_fmt_check.outputs }}
 
       - name: Get timestamp
         if: ${{ failure() }}
