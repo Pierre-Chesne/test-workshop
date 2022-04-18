@@ -22,6 +22,12 @@ jobs:
         if: ${{ failure() }}
         run: |
           terraform fmt -check -diff ./Terraform/Vm > error-fmt
+
+      - name: check cat
+        if: ${{ failure() }}
+        run: |
+          cat error-fmt
+        
       
       - name: cat error-fmt
         if: ${{ failure() }}
