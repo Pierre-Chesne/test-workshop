@@ -11,30 +11,30 @@ jobs:
       - name: Checks-out du repository
         uses: actions/checkout@v2
 
-      - name: Terraform fmt check
-        run: |          
+      - name: Run terraform fmt check
+        run: |
           terraform fmt -check -diff ./Terraform/Vm
         id: var_fmt_check
-
-      - name: Creation d'un timestamp
-        if: ${{ failure() }}
-        run: | 
-          echo "::set-output name=today::$(date "+%Y/%m/%d-%Hh-%Mm-%Ss")"
-        id: var_timestamp
-
-      - name: Create Issue fmt check
-        if: ${{ failure() }}
-        uses: actions-ecosystem/action-create-issue@v1
-        with:
-          github_token: ${{ secrets.github_token }}
-          title: Error fmt check Terraform ${{ steps.var_timestamp.outputs.today }}
-          body: |
-            ## Error Terraform fmt
-            Erreur: ${{steps.var_fmt_check.outputs.stdout}} 
-          assignees: |
-            Pierre-Chesne        
-          labels: |
-            Error Lint Terraform       
+      
+       - name: Creation d'un Timestamp
+         if: ${{ failure() }}
+         run: | 
+           echo "::set-output name=today::$(date "+%Y/%m/%d-%H-%M-%S")"
+         id: var_timestamp
+      
+       - name : Create Issue fmt
+         if: ${{ failure() }}
+         uses: actions-ecosystem/action-create-issue@v1
+         with:
+           github_token: ${{ secrets.github_token }}
+           title: Error Terraform fmt ${{ steps.var_timestamp.outputs.today }}
+           body: |
+             ## Error Terraform fmt
+             Erreur : ${{ steps.var_fmt_check.outputs.stdout }}
+           assignees: |
+             Pierre-Chesne
+           labels: |
+             Error Terraform      
 
   Terraform-validate:
     runs-on: ubuntu-latest
