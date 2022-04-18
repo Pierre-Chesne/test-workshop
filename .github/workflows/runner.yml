@@ -21,8 +21,8 @@ jobs:
       - name: Erro Run terraform fmt check
         if: ${{ failure() }}
         run: |
-          echo "::set-output name=fmt::$(terraform fmt -check -diff ./Terraform/Vm)"
-        id: var_fmt
+          terraform fmt -check -diff ./Terraform/Vm > errorfmt
+          ls -lisa
       
       - name: Creation d'un Timestamp
         if: ${{ failure() }}
@@ -38,7 +38,7 @@ jobs:
           title: Error Terraform fmt ${{ steps.var_timestamp.outputs.today }}
           body: |
             ## Error Terraform fmt
-            Erreur : ${{ steps.var_fmt.outputs.stdout }}
+            Erreur : ""
           assignees: |
             Pierre-Chesne
           labels: |
