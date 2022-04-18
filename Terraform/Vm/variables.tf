@@ -1,6 +1,6 @@
 #  Resource Group Name
 variable "resourceGroupName" {
-  type    = string
+  type    =string
   default = "RG-Runner"
 }
 
