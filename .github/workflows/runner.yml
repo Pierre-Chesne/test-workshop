@@ -19,7 +19,7 @@ jobs:
       - name: Get timestamp
         if: ${{ failure() }}
         run: | 
-          echo "::set-output name=today::$(date "+%Y/%m/%d/%H/%M/%S")"
+          echo "::set-output name=today::$(date "+%Y/%m/%d-%H-%M-%S")"
         id: var_date
 
       - name: Create Issue fmt check
