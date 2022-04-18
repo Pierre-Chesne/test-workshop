@@ -21,8 +21,8 @@ jobs:
       - name: Erro Run terraform fmt check
         if: ${{ failure() }}
         run: |
-          terraform fmt -check -diff ./Terraform/Vm > errorfmt
-          ls -lisa ./Terraform/Vm
+          terraform fmt -check -diff ./Terraform/Vm > error-fmt
+          ls -lisa
       
       - name: Creation d'un Timestamp
         if: ${{ failure() }}
