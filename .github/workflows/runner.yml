@@ -16,6 +16,11 @@ jobs:
 
       - name: Run terraform fmt check
         run: |
+          terraform fmt -check -diff ./Terraform/Vm    
+      
+      - name: Erro Run terraform fmt check
+        if: ${{ failure() }}
+        run: |
           echo "::set-output name=fmt::$(terraform fmt -check -diff ./Terraform/Vm)"
         id: var_fmt
       
