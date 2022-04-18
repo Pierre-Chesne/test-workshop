@@ -30,7 +30,7 @@ jobs:
           title: Error fmt check Terraform ${{ steps.var_timestamp.outputs.today }}
           body: |
             ## Error Terraform fmt
-            Erreur: ${{ steps.var_fmt_check.outputs.stdout }} 
+            Erreur: ${{steps.var_fmt_check.outputs.stdout}} 
           assignees: |
             Pierre-Chesne        
           labels: |
