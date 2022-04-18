@@ -16,30 +16,23 @@ jobs:
           terraform fmt -check -diff ./Terraform/Vm
         id: var_fmt_check
 
-      - name: Get error fmt check
-        if: ${{ failure() }}
-        run: | 
-          echo "${{ steps.var_fmt_check.outputs.stdout }}"
-
-      - name: Get timestamp
+      - name: Creation d'un timestamp
         if: ${{ failure() }}
         run: | 
           echo "::set-output name=today::$(date "+%Y/%m/%d-%Hh-%Mm-%Ss")"
-        id: var_date
+        id: var_timestamp
 
       - name: Create Issue fmt check
         if: ${{ failure() }}
         uses: actions-ecosystem/action-create-issue@v1
         with:
           github_token: ${{ secrets.github_token }}
-          title: Error fmt check Terraform ${{ steps.var_date.outputs.today }}
+          title: Error fmt check Terraform ${{ steps.var_timestamp.outputs.today }}
           body: |
-            ## Error Terraform: 
-
-
+            ## Error Terraform fmt
+            Erreur: ${{ steps.var_fmt_check.outputs.stdout }} 
           assignees: |
             Pierre-Chesne        
-
           labels: |
             Error Lint Terraform       
 
