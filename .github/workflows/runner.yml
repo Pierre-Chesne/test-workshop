@@ -16,6 +16,11 @@ jobs:
           terraform fmt -check -diff ./Terraform/Vm
         id: var_fmt_check
 
+      - name: Get error fmt check
+        if: ${{ failure() }}
+        run: | 
+          echo ${{ step.var_fmt_check.outputs }}
+
       - name: Get timestamp
         if: ${{ failure() }}
         run: | 
@@ -29,7 +34,7 @@ jobs:
           github_token: ${{ secrets.github_token }}
           title: Error fmt check Terraform ${{ steps.var_date.outputs.today }}
           body: |
-            ## Error Terraform 
+            ## Error Terraform: 
 
 
           assignees: |
