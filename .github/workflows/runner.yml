@@ -32,7 +32,7 @@ jobs:
       - name: cat error-fmt
         if: ${{ failure() }}
         run: |
-          echo "::set-output name=fmt::$(echo Peter)"
+          echo "::set-output name=fmt::$(cat error-fmt)"
         id: var_error_fmt
       
       - name: Creation d'un Timestamp
