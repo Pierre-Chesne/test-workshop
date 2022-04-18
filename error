@@ -1,0 +1,11 @@
+Terraform/Vm/variables.tf
+--- old/Terraform/Vm/variables.tf
++++ new/Terraform/Vm/variables.tf
+@@ -1,6 +1,6 @@
+ #  Resource Group Name
+ variable "resourceGroupName" {
+-  type    =string
++  type    = string
+   default = "RG-Runner"
+ }
+ 
