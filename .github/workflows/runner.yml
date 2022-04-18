@@ -33,7 +33,7 @@ jobs:
           title: Error Terraform fmt ${{ steps.timestamp.outputs.today }}
           body: |
             ## Error Terraform fmt
-            Erreur : ${{ steps.fmt.outputs.stdout }}
+            `Erreur : ${{ steps.fmt.outputs.stdout }}`
           assignees: |
             Pierre-Chesne
           labels: |
