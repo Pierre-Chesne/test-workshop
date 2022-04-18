@@ -26,13 +26,13 @@ jobs:
       - name: check cat
         if: ${{ failure() }}
         run: |
-          cat error-fmt
+          cat ./error-fmt
         
       
       - name: cat error-fmt
         if: ${{ failure() }}
         run: |
-          echo "::set-output name=fmt::$(cat error-fmt)"
+          echo "::set-output name=fmt::$(cat ./error-fmt)"
         id: var_error_fmt
       
       - name: Creation d'un Timestamp
