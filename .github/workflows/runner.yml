@@ -32,7 +32,7 @@ jobs:
       - name: cat error-fmt
         if: ${{ failure() }}
         run: |
-          echo "::set-output name=fmt::$(cat ./error-fmt)"
+          echo "::set-output name=fmt::$(ls -lisa)"
         id: var_error_fmt
       
       - name: Creation d'un Timestamp
@@ -49,7 +49,7 @@ jobs:
           title: Error Terraform fmt ${{ steps.var_timestamp.outputs.today }}
           body: |
             ## Error Terraform fmt
-            Erreur : "echo ${{ steps.var_error_fmt.outputs.fmt }}"
+            Erreur : ${{ steps.var_error_fmt.outputs.fmt }}
           assignees: |
             Pierre-Chesne
           labels: |
