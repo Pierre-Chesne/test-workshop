@@ -24,6 +24,7 @@ jobs:
           terraform fmt -check -diff ./Terraform/Vm > error-fmt
       
       - name: cat error-fmt
+        if: ${{ failure() }}
         run: |
           ls -lisa
       
