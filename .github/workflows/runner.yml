@@ -22,7 +22,7 @@ jobs:
       - name: Echo
         if: ${{ failure() }}
         run: |
-          echo Peter    
+          echo ${{ steps.var_fmt_check.outputs.stdout }}
       
   Terraform-validate:
     runs-on: ubuntu-latest
