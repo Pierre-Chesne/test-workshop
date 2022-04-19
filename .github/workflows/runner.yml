@@ -24,7 +24,7 @@ jobs:
           echo "::set-output name=today::$(date "+%Y/%m/%d-%Hh-%Mm-%Ss")"
         id: var_timestamp
 
-      - name: Creation "fmt Issue"
+      - name: Creation "Terrafom fmt Issue"
         if: ${{ failure() }}
         uses: actions-ecosystem/action-create-issue@v1
         with:
@@ -36,7 +36,6 @@ jobs:
             Pierre-Chesne
           labels: |
             Error Terraform              
-
       
   Terraform-validate:
     runs-on: ubuntu-latest
@@ -58,6 +57,25 @@ jobs:
         run: |
           cd ./Terraform/Vm
           terraform validate
+
+      - name: Creation d'un Timestamp
+        if: ${{ failure() }}
+        run: |
+          echo "::set-output name=today::$(date "+%Y/%m/%d-%Hh-%Mm-%Ss")"
+        id: var_timestamp
+
+      - name: Creation "terraform validate Issue"
+        if: ${{ failure() }}
+        uses: actions-ecosystem/action-create-issue@v1
+        with:
+          github_token: ${{ secrets.github_token }}
+          title: Error Terraform validate ${{ steps.var_timestamp.outputs.today }}
+          body: |
+            ## Error Terraform validate
+          assignees: |
+            Pierre-Chesne
+          labels: |
+            Error Terraform
 
   Terraform-checkov:
     runs-on: ubuntu-latest
