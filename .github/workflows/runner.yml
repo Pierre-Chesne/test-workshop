@@ -22,7 +22,7 @@ jobs:
         if: ${{ failure() }}
         run: |
           terraform fmt -check -diff ./Terraform/Vm > error_fmt
-          ls -lisa
+          cat ./error_fmt
       
   Terraform-validate:
     runs-on: ubuntu-latest
