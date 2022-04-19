@@ -59,9 +59,9 @@ resource "azurerm_linux_virtual_machine" "terra_vm" {
   }
 
   source_image_reference {
-    publisher = "Canonical"    # az vm image list --output table
-    offer     = "UbuntuServer" # az vm image list --offer UbuntuServer --all --output table
-    sku       = "18.04-LTS"    # az vm image list-skus --location westus --publisher Canonical --offer UbuntuServer --output table
+    publisher = "Canonical"    
+    offer     = "UbuntuServer" 
+    sku       = "18.04-LTS"    
     version   = "latest"
   }
 }
