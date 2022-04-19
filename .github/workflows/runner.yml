@@ -17,7 +17,11 @@ jobs:
       - name: Run terraform fmt check
         run: |
           terraform fmt -check -diff ./Terraform/Vm
-        id: var_fmt_check    
+        id: var_fmt_check
+
+      - name: Echo
+        run: |
+          echo Peter    
       
   Terraform-validate:
     runs-on: ubuntu-latest
