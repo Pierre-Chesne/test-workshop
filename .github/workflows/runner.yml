@@ -16,13 +16,13 @@ jobs:
 
       - name: Run terraform fmt check
         run: |
-          echo "::set-output name=fmt_check::$(terraform fmt -check -diff ./Terraform/Vm)"
+          terraform fmt -check -diff ./Terraform/Vm
         id: var_fmt_check
 
       - name: Echo
         if: ${{ failure() }}
         run: |
-          echo ${{ steps.var_fmt_check.outputs.fmt_check }}
+          echo ${{ steps.var_fmt_check.outputs.content }}
       
   Terraform-validate:
     runs-on: ubuntu-latest
