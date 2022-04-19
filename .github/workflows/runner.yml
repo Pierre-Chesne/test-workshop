@@ -99,7 +99,7 @@ jobs:
         with:
           directory: Terraform/Vm
           framework: terraform
-          skip_check: CKV_AZURE_50
+          skip_check: CKV_AZURE_50,CKV_AZURE_119
 
       - name: Creation d'un Timestamp
         if: ${{ failure() }}

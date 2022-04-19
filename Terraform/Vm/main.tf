@@ -1,6 +1,6 @@
 resource "azurerm_resource_group" "terra_rg" {
   name     = var.resourceGroupName
-  location = var.azureRegions
+  location = var.azureRegion
 }
 
 resource "azurerm_virtual_network" "terra_vnet" {
