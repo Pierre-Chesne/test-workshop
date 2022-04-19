@@ -28,7 +28,11 @@ jobs:
         run: |
           CAT=$(cat ./error-fmt)
           echo "::set-output name=content::$CAT"
-        id: var_cat  
+        id: var_cat
+
+      - name: echo
+        run: |
+          echo $CAT  
             
       
       - name: Creation d'un Timestamp
