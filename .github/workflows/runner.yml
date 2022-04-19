@@ -18,11 +18,25 @@ jobs:
         run: |
           terraform fmt -check -diff ./Terraform/Vm
         
-      - name: File error
+      - name: Creation d'un Timestamp
         if: ${{ failure() }}
         run: |
-          terraform fmt -check -diff ./Terraform/Vm > error_fmt
-          cat ./error_fmt
+          echo "::set-output name=today::$(date "+%Y/%m/%d-%Hh-%Mm-%Ss")"
+        id: var_timestamp
+
+      - name: Creation "fmt Issue"
+        if: ${{ failure() }}
+        uses: actions-ecosystem/action-create-issue@v1
+        with:
+          github_token: ${{ secrets.github_token }}
+          title: Error Terraform fmt ${{ steps.var_timestamp.outputs.today }}
+          body: |
+            ## Error Terraform fmt
+          assignees: |
+            Pierre-Chesne
+          labels: |
+            Error Terraform              
+
       
   Terraform-validate:
     runs-on: ubuntu-latest
