@@ -26,7 +26,6 @@ jobs:
       - name: check cat
         if: ${{ failure() }}
         run: |
-          cat ./error-fmt
           CAT=$(cat ./error-fmt)
           echo "::set-output name=content::$CAT"
         id: var_cat  
