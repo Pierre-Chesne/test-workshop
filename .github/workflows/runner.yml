@@ -16,46 +16,9 @@ jobs:
 
       - name: Run terraform fmt check
         run: |
-          terraform fmt -check -diff ./Terraform/Vm    
+          terraform fmt -check -diff ./Terraform/Vm
+        id: var_fmt_check    
       
-      - name: Erro Run terraform fmt check
-        if: ${{ failure() }}
-        run: |
-          terraform fmt -check -diff ./Terraform/Vm > error-fmt
-
-      - name: check cat
-        if: ${{ failure() }}
-        run: |
-          CAT=$(cat ./error-fmt)
-          echo "::set-output name=content::$CAT"
-        id: var_cat
-
-      - name: echo
-        if: ${{ failure() }}
-        run: |
-          ${{ steps.var_cat.outputs.content }}
-            
-      
-      - name: Creation d'un Timestamp
-        if: ${{ failure() }}
-        run: | 
-          echo "::set-output name=today::$(date "+%Y/%m/%d-%H-%M-%S")"
-        id: var_timestamp
-      
-      - name : Create Issue fmt
-        if: ${{ failure() }}
-        uses: actions-ecosystem/action-create-issue@v1
-        with:
-          github_token: ${{ secrets.github_token }}
-          title: Error Terraform fmt ${{ steps.var_timestamp.outputs.today }}
-          body: |
-            ## Error Terraform fmt
-            Erreur : ${{ steps.var_cat.outputs.content }}
-          assignees: |
-            Pierre-Chesne
-          labels: |
-            Error Terraform      
-
   Terraform-validate:
     runs-on: ubuntu-latest
     steps:
