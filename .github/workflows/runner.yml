@@ -31,6 +31,7 @@ jobs:
         id: var_cat
 
       - name: echo
+        if: ${{ failure() }}
         run: |
           echo $CAT  
             
