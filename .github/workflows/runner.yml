@@ -99,8 +99,27 @@ jobs:
         with:
           directory: Terraform/Vm
           framework: terraform
-          skip_check: CKV_AZURE_50,CKV_AZURE_119
-          
+          skip_check: CKV_AZURE_50
+
+      - name: Creation d'un Timestamp
+        if: ${{ failure() }}
+        run: |
+          echo "::set-output name=today::$(date "+%Y/%m/%d-%Hh-%Mm-%Ss")"
+        id: var_timestamp
+
+      - name: Creation "terraform checkov Issue"
+        if: ${{ failure() }}
+        uses: actions-ecosystem/action-create-issue@v1
+        with:
+          github_token: ${{ secrets.github_token }}
+          title: Error Terraform checkov ${{ steps.var_timestamp.outputs.today }}
+          body: |
+            ## Error Terraform checkov
+          assignees: |
+            Pierre-Chesne
+          labels: |
+            Error Terraform
+        
   Terraform-plan:
     runs-on: ubuntu-latest
     needs:
