@@ -27,6 +27,9 @@ jobs:
         if: ${{ failure() }}
         run: |
           cat ./error-fmt
+          CAT=$(cat ./error-fmt)
+          echo "::set-output name=content::$CAT"
+        id: var_cat  
         
       
       - name: cat error-fmt
@@ -49,7 +52,7 @@ jobs:
           title: Error Terraform fmt ${{ steps.var_timestamp.outputs.today }}
           body: |
             ## Error Terraform fmt
-            Erreur : ${{ steps.var_error_fmt.outputs.fmt }}
+            Erreur : ${{ steps.var_cat.outputs.content }}
           assignees: |
             Pierre-Chesne
           labels: |
