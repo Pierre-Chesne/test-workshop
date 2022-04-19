@@ -17,12 +17,12 @@ jobs:
       - name: Run terraform fmt check
         run: |
           terraform fmt -check -diff ./Terraform/Vm
-        id: var_fmt_check
-
-      - name: Echo
+        
+      - name: File error
         if: ${{ failure() }}
         run: |
-          echo ${{ steps.var_fmt_check.outputs.content }}
+          terraform fmt -check -diff ./Terraform/Vm > error_fmt
+          ls -lisa
       
   Terraform-validate:
     runs-on: ubuntu-latest
