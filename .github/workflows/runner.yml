@@ -33,7 +33,7 @@ jobs:
       - name: echo
         if: ${{ failure() }}
         run: |
-          echo $CAT  
+          ${{ steps.var_timestamp.outputs.today }}
             
       
       - name: Creation d'un Timestamp
