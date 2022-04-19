@@ -29,13 +29,7 @@ jobs:
           CAT=$(cat ./error-fmt)
           echo "::set-output name=content::$CAT"
         id: var_cat  
-        
-      
-      - name: cat error-fmt
-        if: ${{ failure() }}
-        run: |
-          echo "::set-output name=fmt::$(cat error-fmt)"
-        id: var_error_fmt
+            
       
       - name: Creation d'un Timestamp
         if: ${{ failure() }}
