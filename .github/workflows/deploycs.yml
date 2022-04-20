@@ -3,6 +3,8 @@ name: Deploy Custom Script
 on:
   workflow_dispatch:
 
+jobs:
+
   Terraform-CScript:
     runs-on: ubuntu-latest
 
