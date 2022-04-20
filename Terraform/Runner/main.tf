@@ -1,9 +1,9 @@
 data "terraform_remote_state" "Terra-datasource-vm" {
   backend = "azurerm"
-  
+
   config = {
-    resource_group_name  = "RG-Backend-Terraform"    # mettre ici le nom du resource group de vos ressource
-    storage_account_name = "storagebeterraform" # mettre le nom du compte de stockage créer dans le lab 1
+    resource_group_name  = "RG-Backend-Terraform"
+    storage_account_name = "storagebeterraform"
     container_name       = "tfstate"
     key                  = "vm.terraform.tfstate"
   }
