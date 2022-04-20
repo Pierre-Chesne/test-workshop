@@ -1,4 +1,4 @@
-data "terraform_remote_state" "Terra-datasource-acr" {
+data "terraform_remote_state" "Terra-datasource-vm" {
   backend = "azurerm"
   
   config = {
