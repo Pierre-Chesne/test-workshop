@@ -1,4 +1,4 @@
-name: Deploy Self Runner
+name: Deploy Custom Script
 
 on:
   workflow_dispatch:
