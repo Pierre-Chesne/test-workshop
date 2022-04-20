@@ -67,21 +67,17 @@ resource "azurerm_linux_virtual_machine" "terra_vm" {
 }
 
 resource "azurerm_virtual_machine_extension" "terra_custom_script" {
-  name = var.vmName
-  virtual_machine_id = azurerm_linux_virtual_machine.terra_vm.id
-  publisher = "Microsoft.Azure.Extensions"
-  type = "CustomScript"
+  name                 = var.vmName
+  virtual_machine_id   = azurerm_linux_virtual_machine.terra_vm.id
+  publisher            = "Microsoft.Azure.Extensions"
+  type                 = "CustomScript"
   type_handler_version = "2.0"
 
   settings = <<SETTINGS
     {
       "fileUris:[
-        ""
+        "https://raw.githubusercontent.com/Pierre-Chesne/test-workshop/main/runner/runner.sh"
       ]
     }
-
-  SETTINGS
-
-
-  
+SETTINGS
 }
