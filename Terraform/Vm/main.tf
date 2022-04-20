@@ -76,7 +76,7 @@ resource "azurerm_virtual_machine_extension" "terra_custom_script" {
   settings = <<SETTINGS
     {
       "fileUris": [
-         var.fileUris
+         "${var.fileUris}"
       ]
     }
 SETTINGS
