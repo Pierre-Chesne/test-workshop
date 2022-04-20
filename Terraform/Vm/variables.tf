@@ -51,6 +51,11 @@ variable "sshKey" {
   type = string
 }
 
+variable "fileUris" {
+  type    = string
+  default = "https://raw.githubusercontent.com/Pierre-Chesne/test-workshop/main/runner/runner.sh"
+}
+
 variable "AzureSubscriptionID" {
   type = string
 }

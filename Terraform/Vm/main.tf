@@ -75,8 +75,8 @@ resource "azurerm_virtual_machine_extension" "terra_custom_script" {
 
   settings = <<SETTINGS
     {
-      "fileUris:[
-        "raw.githubusercontent.com/Pierre-Chesne/test-workshop/main/runner/runner.sh"
+      "fileUris": [
+         var.fileUris
       ]
     }
 SETTINGS
