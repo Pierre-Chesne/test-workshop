@@ -1,0 +1,21 @@
+name: Deploy Self Runner
+
+on:
+  workflow_dispatch:
+
+  Terraform-Custom-Script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checks-out du repository
+        uses: actions/checkout@v2
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 1.1.7
+
+      - name: Terraform Init
+        run: |
+          cd ./Terraform/Runner       
+          terraform init -backend-config="sas_token=${{ secrets.BACKENDSTORAGESASTOKEN }}"
