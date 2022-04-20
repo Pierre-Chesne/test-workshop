@@ -75,6 +75,7 @@ resource "azurerm_virtual_machine_extension" "terra_custom_script" {
 
   settings = <<SETTINGS
     {
+      "commandToExecute": "sh runner.sh",
       "fileUris": [
          "${var.fileUris}"
       ]
