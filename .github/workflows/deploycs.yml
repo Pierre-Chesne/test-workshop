@@ -24,7 +24,7 @@ jobs:
 
       - name: Terraform Plan
         run: |
-          cd ./Terraform/Vm
+          cd ./Terraform/Runner
           terraform plan \
              -var 'AzureSubscriptionID=${{ secrets.SUBSCRIPTIONID }}' \
              -var 'AzureClientSecret=${{ secrets.CLIENTSECRET }}' \
