@@ -3,7 +3,7 @@ name: Deploy Self Runner
 on:
   workflow_dispatch:
 
-  Terraform-Custom-Script:
+  Terraform-CScript:
     runs-on: ubuntu-latest
 
     steps:
