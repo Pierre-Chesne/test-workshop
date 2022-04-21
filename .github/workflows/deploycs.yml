@@ -36,4 +36,4 @@ jobs:
       - name: Terraform Plan
         run: |
           cd ./Terraform/Runner
-          lls -lisa
+          ls -lisa
