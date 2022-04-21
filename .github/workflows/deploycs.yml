@@ -25,10 +25,5 @@ jobs:
       - name: Terraform Plan
         run: |
           cd ./Terraform/Runner
-          terraform plan \
-             -var 'AzureSubscriptionID=${{ secrets.SUBSCRIPTIONID }}' \
-             -var 'AzureClientSecret=${{ secrets.CLIENTSECRET }}' \
-             -var 'AzureClientID=${{ secrets.CLIENTID }}' \
-             -var 'AzureTenandID=${{ secrets.TENANTID }}' \
-             -lock=false -out=tf.plan
-          ls -lisa
+          terraform plan -var 'AzureSubscriptionID=${{ secrets.SUBSCRIPTIONID }}' 'AzureClientSecret=${{ secrets.CLIENTSECRET }}' -var 'AzureClientID=${{ secrets.CLIENTID }}' -var 'AzureTenandID=${{ secrets.TENANTID }}' -lock=false -out=tf.plan
+          
