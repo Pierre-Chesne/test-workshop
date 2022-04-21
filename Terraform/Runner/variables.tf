@@ -15,6 +15,6 @@ variable "AzureClientID" {
   type = string
 }
 
-variable "AzureTenandID" {
+variable "AzureTenandIDx" {
   type = string
 }
