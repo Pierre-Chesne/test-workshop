@@ -27,3 +27,8 @@ jobs:
         run: |
           cd ./Terraform/Runner       
           terraform init -backend-config="sas_token=${{ secrets.BACKENDSTORAGESASTOKEN }}"
+
+      - name: Terraform Validate
+        run: |
+          cd ./Terraform/Runner
+          terraform validate
