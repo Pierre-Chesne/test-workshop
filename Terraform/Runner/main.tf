@@ -11,7 +11,7 @@ data "terraform_remote_state" "terra_datasource_vm" {
 
 resource "azurerm_virtual_machine_extension" "terra_custom_script" {
   name                 = "Github-Runner"
-  virtual_machine_id   = data.terra_datasource_vm.azurerm_linux_virtual_machine.terra_vm.id
+  virtual_machine_id   = data.terraform_remote_state.terra_datasource_vm.virtual_machine_id
   publisher            = "Microsoft.Azure.Extensions"
   type                 = "CustomScript"
   type_handler_version = "2.0"
