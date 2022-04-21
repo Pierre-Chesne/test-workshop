@@ -32,3 +32,16 @@ jobs:
         run: |
           cd ./Terraform/Runner
           terraform validate
+
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+
+      - name: Test with Checkov
+        id: checkov
+        uses: bridgecrewio/checkov-action@master
+        with:
+          directory: Terraform/Runner
+          framework: terraform
+          skip_check: CKV_AZURE_50,CKV_AZURE_119
