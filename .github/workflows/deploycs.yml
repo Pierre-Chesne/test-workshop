@@ -5,12 +5,18 @@ on:
 
 jobs:
 
+
+
   Terraform-CScript:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checks-out du repository
         uses: actions/checkout@v2
+
+      - name: Run terraform fmt check
+        run: |
+          terraform fmt -check -diff ./Terraform/Vm
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
