@@ -37,4 +37,9 @@ jobs:
         run: |
           cd ./Terraform/Runner
           ls -lisa
-          terraform plan -var 'AzureSubscriptionID=${{ secrets.SUBSCRIPTIONID }}' -lock=false -out=tf.plan
+          terraform plan \
+            -var 'AzureSubscriptionID=${{ secrets.SUBSCRIPTIONID }}' \
+            -var 'AzureClientSecret=${{ secrets.CLIENTSECRET }}' \
+            -var 'AzureClientID=${{ secrets.CLIENTID }}' \
+            -var 'AzureTenandID=${{ secrets.TENANTID }}' \
+            -lock=false -out=tf.plan            
