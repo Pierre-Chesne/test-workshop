@@ -31,10 +31,4 @@ jobs:
              -var 'AzureSubscriptionID=${{ secrets.SUBSCRIPTIONID }}' \
              -var 'AzureClientSecret=${{ secrets.CLIENTSECRET }}' \
              -var 'AzureClientID=${{ secrets.CLIENTID }}' \
-             -var 'AzureTenandID=${{ secrets.TENANTID }}' \
-             -out=tf.plan
-            
-          
-
-
-        
+             -var 'AzureTenandID=${{ secrets.TENANTID }}'
