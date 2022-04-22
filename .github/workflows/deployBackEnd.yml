@@ -28,7 +28,7 @@ jobs:
         run: |
           cd ./Terraform/Backend
           terraform plan \
-             -var 'AzureSubscriptionID=${{ secrets.SUBSCRIPTIONID }}' \
-             -var 'AzureClientSecret=${{ secrets.CLIENTSECRET }}' \
-             -var 'AzureClientID=${{ secrets.CLIENTID }}' \
-             -var 'AzureTenandID=${{ secrets.TENANTID }}'
+            -var 'AzureSubscriptionID=${{ secrets.SUBSCRIPTIONID }}' \
+            -var 'AzureClientSecret=${{ secrets.CLIENTSECRET }}' \
+            -var 'AzureClientID=${{ secrets.CLIENTID }}' \
+            -var 'AzureTenandID=${{ secrets.TENANTID }}'
