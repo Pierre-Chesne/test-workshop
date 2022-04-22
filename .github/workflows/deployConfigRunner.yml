@@ -31,3 +31,8 @@ jobs:
             -var 'AzureClientID=${{ secrets.CLIENTID }}' \
             -var 'AzureTenandID=${{ secrets.TENANTID }}' \
             -lock=false -out=tf.plan
+
+      - name: Terraform Apply
+        run: |
+          cd ./Terraform/ConfigRunner
+          terraform apply -lock=false "tf.plan"
