@@ -1,4 +1,4 @@
-name: Deploy Self Runner
+name: Deploy VM Self Runner
 
 on:
   workflow_dispatch:
@@ -13,7 +13,7 @@ jobs:
 
       - name: Run terraform fmt check
         run: |
-          terraform fmt -check -diff ./Terraform/Vm
+          terraform fmt -check -diff ./Terraform/VmSelfRunner
         
       - name: Creation d'un Timestamp
         if: ${{ failure() }}
@@ -47,12 +47,12 @@ jobs:
 
       - name: Terraform Init
         run: |
-          cd ./Terraform/Vm        
+          cd ./Terraform/VmSelfRunner        
           terraform init -backend-config="sas_token=${{ secrets.BACKENDSTORAGESASTOKEN }}"
 
       - name: Terraform Validate
         run: |
-          cd ./Terraform/Vm
+          cd ./Terraform/VmSelfRunner
           terraform validate
 
       - name: Creation d'un Timestamp
@@ -94,7 +94,7 @@ jobs:
         id: checkov
         uses: bridgecrewio/checkov-action@master
         with:
-          directory: Terraform/Vm
+          directory: Terraform/VmSelfRunner
           framework: terraform
           skip_check: CKV_AZURE_50,CKV_AZURE_119
 
@@ -134,12 +134,12 @@ jobs:
 
       - name: Terraform Init
         run: |
-          cd ./Terraform/Vm       
+          cd ./Terraform/VmSelfRunner       
           terraform init -backend-config="sas_token=${{ secrets.BACKENDSTORAGESASTOKEN }}"
 
       - name: Terraform Plan
         run: |
-          cd ./Terraform/Vm
+          cd ./Terraform/VmSelfRunner
           terraform plan \
              -var 'AzureSubscriptionID=${{ secrets.SUBSCRIPTIONID }}' \
              -var 'AzureClientSecret=${{ secrets.CLIENTSECRET }}' \
@@ -153,7 +153,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: ArtifactTerraform
-          path: ./Terraform/Vm/tf.plan
+          path: ./Terraform/VmSelfRunner/tf.plan
 
   Terraform-apply:
     runs-on: ubuntu-latest
@@ -172,16 +172,16 @@ jobs:
 
       - name: Terraform Init
         run: |
-          cd ./Terraform/Vm       
+          cd ./Terraform/VmSelfRunner       
           terraform init -backend-config="sas_token=${{ secrets.BACKENDSTORAGESASTOKEN }}"
 
       - name: Download Artifact
         uses: actions/download-artifact@v3
         with:
           name: ArtifactTerraform
-          path: ./Terraform/Vm
+          path: ./Terraform/VmSelfRunner
 
       - name: Terraform Apply
         run: |
-          cd ./Terraform/Vm
+          cd ./Terraform/VmSelfRunner
           terraform apply -lock=false "tf.plan"
