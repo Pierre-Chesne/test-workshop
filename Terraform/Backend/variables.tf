@@ -1,6 +1,6 @@
 variable "azureRegion" {
-  type        = string
-  default     = "westeuropex"
+  type    = string
+  default = "westeuropex"
 }
 
 variable "resourceGroupName" {
@@ -9,7 +9,7 @@ variable "resourceGroupName" {
 }
 
 variable "storageAccountBackendTerraform" {
-  type = string
+  type    = string
   default = "storagebeterraform"
 }
 

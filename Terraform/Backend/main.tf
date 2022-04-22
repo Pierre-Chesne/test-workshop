@@ -13,7 +13,7 @@ resource "azurerm_storage_account" "Terra_Storage_Backend" {
   enable_https_traffic_only = true
 }
 
-resource "azurerm_storage_container" "Terra-Container-Storage" {
+resource "azurerm_storage_container" "Terra_Container_Storage" {
   name                  = "tfstate"
   storage_account_name  = azurerm_storage_account.Terra_Storage_Backend.name
   container_access_type = "private"
