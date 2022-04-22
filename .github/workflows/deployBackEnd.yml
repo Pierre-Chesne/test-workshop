@@ -33,3 +33,8 @@ jobs:
             -var 'AzureClientID=${{ secrets.CLIENTID }}' \
             -var 'AzureTenandID=${{ secrets.TENANTID }}' \
             -out=tf.plan
+
+      - name: Terraform apply
+        run: |
+          cd ./Terraform/Backend && terraform apply "tf.plan"
+           
