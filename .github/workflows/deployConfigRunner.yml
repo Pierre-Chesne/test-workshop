@@ -19,7 +19,7 @@ jobs:
 
       - name: Terraform Init
         run: |
-          cd ./Terraform/Runner       
+          cd ./Terraform/SelfRunner       
           terraform init -backend-config="sas_token=${{ secrets.BACKENDSTORAGESASTOKEN }}"
 
       - name: Terraform Plan
