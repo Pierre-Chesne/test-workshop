@@ -18,7 +18,7 @@ jobs:
 
       - name: Terraform init
         run: |
-          cd ./Terraform/Backend && Terraform init
+          cd ./Terraform/Backend && terraform init
 
 
         
