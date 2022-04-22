@@ -1,12 +1,16 @@
 variable "azureRegion" {
   type        = string
   default     = "westeurope"
-  description = "tamere"
 }
 
 variable "resourceGroupName" {
   type    = string
-  default = "RG-Test-Terraform"
+  default = "RG-Backend-Terraform"
+}
+
+variable "storageAccountBackendTerraform" {
+  type = string
+  default = "storagebeterraform"
 }
 
 variable "AzureSubscriptionID" {
@@ -24,4 +28,3 @@ variable "AzureClientID" {
 variable "AzureTenandID" {
   type = string
 }
-
