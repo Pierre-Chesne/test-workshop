@@ -20,6 +20,10 @@ jobs:
         run: |
           cd ./Terraform/Backend && terraform init
 
+      - name: Terraform Validate
+        run: |
+          cd ./Terraform/Backend && terraform validate
+
       - name: Terraform plan
         run: |
           cd ./Terraform/Backend
