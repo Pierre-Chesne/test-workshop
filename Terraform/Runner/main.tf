@@ -9,19 +9,9 @@ data "terraform_remote_state" "terra_datasource_vm" {
   }
 }
 
-resource "azurerm_virtual_machine_extension" "terra_custom_script" {
-  name                 = "Github-Runner"
-  virtual_machine_id   = data.terraform_remote_state.terra_datasource_vm.outputs.virtual_machine_id
-  publisher            = "Microsoft.Azure.Extensions"
-  type                 = "CustomScript"
-  type_handler_version = "2.0"
-
-  settings = <<SETTINGS
-    {
-      "commandToExecute": "sh runner.sh",
-      "fileUris": [
-         "${var.fileUris}"
-      ]
-    }
-SETTINGS
+resource "azurerm_resource_group" "terra_rg_test" {
+  name = "rg-test"
+  location = "westeurope"
+  
 }
+
