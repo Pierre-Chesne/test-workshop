@@ -1,11 +1,9 @@
-name: Deploy Custom Script
+name: Deploy Custom Script Self Runner
 
 on:
   workflow_dispatch:
 
 jobs:
-
-
 
   Terraform-CScript:
     runs-on: ubuntu-latest
@@ -26,11 +24,9 @@ jobs:
 
       - name: Terraform Plan
         run: |
-          cd ./Terraform/Runner
+          cd ./Terraform/ConfigRunner
           terraform plan \
             -var 'AzureSubscriptionID=${{ secrets.SUBSCRIPTIONID }}' \
             -var 'AzureClientSecret=${{ secrets.CLIENTSECRET }}' \
             -var 'AzureClientID=${{ secrets.CLIENTID }}' \
-            -var 'AzureTenandID=${{ secrets.TENANTID }}' \
-            -lock=false -out=tf.plan
-            ls -lisa
+            -var 'AzureTenandID=${{ secrets.TENANTID }}'
