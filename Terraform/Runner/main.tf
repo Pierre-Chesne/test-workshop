@@ -23,25 +23,7 @@ provider "azurerm" {
   tenant_id       = var.AzureTenandID
 }
 
-data "terraform_remote_state" "terra_datasource_vm" {
-  backend = "azurerm"
 
-  config = {
-    resource_group_name  = "RG-Backend-Terraform"
-    storage_account_name = "storagebeterraform"
-    container_name       = "tfstate"
-    key                  = "vm.terraform.tfstate"
-  }
-  provider "azurerm" {
-  features {}
-  subscription_id = var.AzureSubscriptionID
-  client_id       = var.AzureClientID
-  client_secret   = var.AzureClientSecret
-  tenant_id       = var.AzureTenandID
-}
-
-  
-}
 
 resource "azurerm_resource_group" "terra_rg_test" {
   name = "rg-test"
